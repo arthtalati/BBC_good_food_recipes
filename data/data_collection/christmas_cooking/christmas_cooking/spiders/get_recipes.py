@@ -22,7 +22,9 @@ class GetRecipes(scrapy.Spider):
 		Recipe['link']=response.url
 		Recipe['name']=response.css('h1.recipe-header__title::text').extract()
 		Recipe['description']=response.xpath('//div[@class = "field-item even"]/text()').extract_first() 
+		Recipe['author']=response.xpath('//span[@class = "author"]/a/text()').extract_first() 
 		
 		print(response.url)
 		print(response.css('h1.recipe-header__title::text').extract_first())
 		print(response.xpath('//div[@class = "field-item even"]/text()').extract_first()) 
+		print(response.xpath('//span[@class = "author"]/a/text()').extract_first())

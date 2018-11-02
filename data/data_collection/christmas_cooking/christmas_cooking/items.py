@@ -15,3 +15,4 @@ class RecipeItem(scrapy.Item):
 	link = scrapy.Field()
 	name = scrapy.Field()
 	description = scrapy.Field()
+	author = scrapy.Field()
