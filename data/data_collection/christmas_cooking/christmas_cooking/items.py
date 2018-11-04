@@ -16,3 +16,5 @@ class RecipeItem(scrapy.Item):
 	name = scrapy.Field()
 	description = scrapy.Field()
 	author = scrapy.Field()
+	ingredients = scrapy.Field()
+	method = scrapy.Field()
