@@ -25,7 +25,7 @@ class GetLinks(scrapy.Spider):
 			yield(linkitem)
 			
 		next_page_url = response.xpath("//li[@class = 'pager-next bg-turquoise-safe last']/a/@href").extract_first()
-		print(next_page_url)
+		#print(next_page_url)
 		if next_page_url:
 			next_page_url = response.urljoin(next_page_url)
 			yield scrapy.Request(url=next_page_url, callback=self.parse)
