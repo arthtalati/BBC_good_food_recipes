@@ -24,6 +24,7 @@ class GetRecipes(scrapy.Spider):
 		Recipe['description']=response.xpath('//div[@class = "field-item even"]/text()').extract_first() 
 		Recipe['author']=response.xpath('//span[@class = "author"]/a/text()').extract_first() 
 		Recipe['ingredients']=response.xpath('//li[@class = "ingredients-list__item"]/@content').extract()
+		Recipe['method']=response.xpath('//li[@class = "method__item"]/p/text()').extract()
 		
 		print(response.url)
 		print(response.css('h1.recipe-header__title::text').extract_first())
@@ -31,3 +32,5 @@ class GetRecipes(scrapy.Spider):
 		print(response.xpath('//span[@class = "author"]/a/text()').extract_first())
 		ingredients_content=response.xpath('//li[@class = "ingredients-list__item"]/@content').extract()
 		print(ingredients_content)
+		method_list=response.xpath('//li[@class = "method__item"]/p/text()').extract()
+		print(method_list)
