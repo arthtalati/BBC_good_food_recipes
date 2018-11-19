@@ -13,8 +13,8 @@ class GetRecipes(scrapy.Spider):
 	name = 'get_recipes'
   	
 	def start_requests(self):
-		pages=pd.read_csv("../../data/links.csv")['link'].dropna(axis=0).tolist()
-		#pages=pages[pages['link'] is not 'link'].tolist()
+		pages=pd.read_csv("../../data/links.csv")['link'].dropna(axis=0)
+		pages=[page for page in pages if page != 'link']
 		for page in pages:
 			self.log("Requesting: " + page)
 			yield SplashRequest(url=page, callback=self.parse,args={'wait': 1})
