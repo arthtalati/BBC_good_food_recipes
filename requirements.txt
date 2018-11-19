@@ -2,3 +2,4 @@ scrapy
 pandas
 numpy
 matplotlib
+json
